@@ -1,13 +1,25 @@
 package com.teckiti.screens.home
+import android.widget.ImageButton
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.AssistChip
+import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ChipBorder
+import androidx.compose.material3.ChipElevation
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
@@ -22,7 +34,18 @@ import androidx.compose.ui.Alignment
 
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.teckiti.R
+import com.teckiti.composable.CustomChip
+import com.teckiti.composable.CustomText
+import com.teckiti.composable.OutlineButton
+import com.teckiti.composable.PrimaryButton
+import com.teckiti.composable.SpacerVertical24
+import com.teckiti.ui.theme.Gray
+import com.teckiti.ui.theme.LightWhite
 import com.teckiti.ui.theme.TextWhite
 import com.teckiti.ui.theme.primary
 
@@ -33,54 +56,44 @@ fun HomeScreen(
     HomeContent()
 }
 
-
-
-
 @Composable
 private fun HomeContent() {
-    Row(
-        horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.Top,
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Button(
-            onClick = {},
-            modifier = Modifier
-                .padding(end = 4.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = primary),
-        ) {
-            Text(text = "Now Showing", color = TextWhite)
+        Row() {
+            PrimaryButton(
+                title = "Now Showing",
+                modifier = Modifier
+                    .padding(end = 4.dp),
+            ){}
+            OutlineButton(
+                title = "Coming Soon",
+                modifier= Modifier
+                    .padding(start = 4.dp),
+            ){}
+
         }
-        OutlinedButton(
-            onClick = {},
-            modifier = Modifier
-                .padding(start = 4.dp),
-            colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.White, containerColor = Color.Transparent),
-            border = BorderStroke(1.dp, TextWhite)
+        SpacerVertical24()
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            Text(text = "Coming Soon")
+            Icon(
+                modifier= Modifier.size(16.dp),
+                painter = painterResource(R.drawable.clock_gray),
+                contentDescription = "clock",
+            )
+            Text(text = "2h 33m", color = Color.Black ,fontSize=16.sp,)
+        }
+        SpacerVertical24()
+        CustomText(title = "Fantastic Beasts: The ")
+        CustomText(title = "Secrets of Dumbledore")
+        SpacerVertical24()
+        Row() {
+            CustomChip(text = "Fantasy",modifier = Modifier.padding(4.dp),){}
+            CustomChip(text = "Adventure",modifier = Modifier.padding(4.dp),){}
         }
     }
-}
-@Composable
-fun SliderExample() {
-    var sliderPosition by remember { mutableStateOf(0f) }
-
-    Slider(
-        value = sliderPosition,
-        onValueChange = { newValue ->
-            sliderPosition = newValue
-        },
-        valueRange = 0f..100f,
-        steps = 5,
-        colors = SliderDefaults.colors(
-            thumbColor = Color.Red,
-            activeTrackColor = Color.Green,
-            inactiveTrackColor = Color.Gray
-        ),
-        modifier = Modifier.width(200.dp)
-    )
-
-
 }
 
 
