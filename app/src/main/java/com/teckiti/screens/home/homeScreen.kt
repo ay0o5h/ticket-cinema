@@ -14,7 +14,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
@@ -35,9 +37,12 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.skydoves.cloudy.Cloudy
 import com.teckiti.R
+import com.teckiti.composable.BackgroundBlurImage
 import com.teckiti.composable.CustomChip
 import com.teckiti.composable.CustomText
 import com.teckiti.composable.NavigationItem
@@ -46,6 +51,7 @@ import com.teckiti.composable.PrimaryButton
 import com.teckiti.composable.SpacerVertical16
 import com.teckiti.composable.SpacerVertical32
 import com.teckiti.ui.theme.primary
+import com.teckiti.utils.Constans
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "UnusedMaterialScaffoldPaddingParameter")
@@ -90,18 +96,15 @@ fun HomeScreen(
 @Composable
 private fun HomeContent() {
 
-    val imageList = listOf(
-        R.drawable.slider_3,
-        R.drawable.slider_1,
-        R.drawable.slider_2,
-    )
+
     val pagerState = rememberPagerState(
-        initialPage = imageList.size / 2
+        initialPage = Constans.imageList.size / 2
     )
     Box(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState())
     ) {
-        BackgroundWithBlurredImage(painter = painterResource(id = imageList[pagerState.currentPage]))
+        BackgroundBlurImage(
+            painter = painterResource(id = Constans.imageList[pagerState.currentPage]))
         Column(
             modifier = Modifier
                 .matchParentSize(),
@@ -122,21 +125,20 @@ private fun HomeContent() {
 
             }
             SpacerVertical16()
-            ImageSlider(imageList = imageList, pagerState = pagerState)
+            ImageSlider(imageList = Constans.imageList, pagerState = pagerState)
             SpacerVertical16()
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-            ) {
-                Icon(
-                    modifier = Modifier.size(16.dp),
-                    painter = painterResource(R.drawable.clock_gray),
-                    contentDescription = "clock",
-                )
-                Text(text = "2h 33m", color = Color.Black, fontSize = 16.sp,)
-            }
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    Icon(
+                        modifier = Modifier.size(16.dp),
+                        painter = painterResource(R.drawable.clock_gray),
+                        contentDescription = "clock",
+                    )
+                    Text(text = "2h 33m", color = Color.Black, fontSize = 16.sp,)
+                }
             SpacerVertical16()
-            CustomText(title = "Fantastic Beasts: The ")
-            CustomText(title = "Secrets of Dumbledore")
+            CustomText(title = "Fantastic Beasts: The \n Secrets of Dumbledore ")
             SpacerVertical16()
             Row() {
                 CustomChip(text = "Fantasy", modifier = Modifier.padding(4.dp),) {}
@@ -145,47 +147,11 @@ private fun HomeContent() {
         }
     }
 }
-
+@Preview
 @Composable
-fun BackgroundWithBlurredImage(
-    painter: Painter,
-    modifier: Modifier = Modifier
-) {
-    Box(modifier = modifier.fillMaxSize()
-        .drawWithContent {
-            drawContent()
-            drawRect(
-                brush = Brush.verticalGradient(
-                    listOf(
-                        Color.Transparent,
-                        Color.Transparent,
-                        Color.Transparent,
-                        Color.White.copy(alpha = 0.1f),
-                        Color.White.copy(alpha = 0.2f),
-                        Color.White.copy(alpha = 0.3f),
-                        Color.White.copy(alpha = 0.4f),
-                        Color.White.copy(alpha = 0.5f),
-                        Color.White.copy(alpha = 0.7f),
-                        Color.White.copy(alpha = 0.8f),
-                        Color.White.copy(alpha = 0.9f),
-                        Color.White,
-                    ),
-                ),
-                topLeft = Offset(0f, size.height / 5),
-            )
-        }) {
-        Image(
-            painter = painter,
-            contentDescription = null,
-            contentScale = ContentScale.FillBounds,
-            modifier = Modifier
-                .fillMaxWidth()
-                .fillMaxHeight(0.5f)
-                .blur(radius = 25.dp)
-        )
-    }
+fun HomeScreenPreview() {
+    HomeScreen()
 }
-
 
 
 

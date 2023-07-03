@@ -11,8 +11,8 @@ import androidx.compose.ui.unit.sp
 fun CustomText(title:String,modifier: Modifier=Modifier){
     Text(text = title,
         color = Color.Black ,
-        fontSize=24.sp,
-        fontWeight = FontWeight.SemiBold,
+        fontSize=20.sp,
+        fontWeight = FontWeight.W500,
         modifier=modifier
     )
 

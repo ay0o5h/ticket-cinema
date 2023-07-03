@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
                 ) {
 //                    val navController = rememberNavController()
 //                    TicketNavGraph(navController = navController, START_DESTINATION)
-                    BookingScreen()
+                    HomeScreen()
                 }
             }
         }
