@@ -8,7 +8,7 @@ val GrayBrown = Color(0xFF968E85)
 
 val primary40 = Color(0xFF7A412F)
 val primaryGrey40 = Color(0xFF6C4640)
-val GrayBrown40 = Color(0xFF5D5953)
+val GrayBrown40 = Color(0x44BBBBBB)
 
 
 val LightWhite = Color(0x4DFFFFFF)
