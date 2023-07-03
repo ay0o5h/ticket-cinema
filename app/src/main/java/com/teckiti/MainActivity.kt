@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.teckiti.screens.booking.BookingScreen
 import com.teckiti.screens.home.HomeScreen
 import com.teckiti.ui.theme.TeckitiTheme
 import com.teckiti.utils.START_DESTINATION
@@ -31,7 +32,7 @@ class MainActivity : ComponentActivity() {
                 ) {
 //                    val navController = rememberNavController()
 //                    TicketNavGraph(navController = navController, START_DESTINATION)
-                    HomeScreen()
+                    BookingScreen()
                 }
             }
         }
