@@ -18,6 +18,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,6 +28,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -47,8 +49,15 @@ import com.teckiti.composable.SpacerVertical128
 import com.teckiti.composable.SpacerVertical16
 import com.teckiti.composable.SpacerVertical8
 import com.teckiti.composable.TextRate
+import com.teckiti.composable.TextStyles
 import com.teckiti.screens.home.HomeScreen
 import com.teckiti.ui.theme.Gray
+import com.teckiti.ui.theme.radius_10
+import com.teckiti.ui.theme.space_16
+import com.teckiti.ui.theme.space_32
+import com.teckiti.ui.theme.space_4
+import com.teckiti.ui.theme.space_48
+import com.teckiti.ui.theme.space_8
 import com.teckiti.utils.Constans
 import kotlin.math.roundToInt
 
@@ -64,60 +73,61 @@ private fun BookingContent() {
     {
         Image(
             painter = painterResource(id = R.drawable.slider_1),
-            contentDescription = "cover",
+            contentDescription = stringResource(R.string.cover),
             contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxWidth()
         )
         Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier
             .fillMaxSize()
-            .padding(top = 32.dp)){
+            .padding(top = space_32)){
             BookingHeader()
             SpacerVertical128()
             PlayButton()
         }
         Surface(
             modifier = Modifier
-                .clip(RoundedCornerShape(topStartPercent = 8, topEndPercent = 8))
+                .clip(RoundedCornerShape(topStartPercent = radius_10, topEndPercent = radius_10))
                 .fillMaxWidth()
                 .fillMaxHeight(0.56f)
                 .align(Alignment.BottomCenter),
             color=Color.White
         ) {
             Column(
-                modifier = Modifier.padding(vertical = 16.dp),
+                modifier = Modifier.padding(vertical = space_16),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                        .padding(horizontal = space_16, vertical = space_8),
                     horizontalArrangement = Arrangement.SpaceAround,
                 ) {
-                    TextRate(rate = "6.8", type = "IMDb")
-                    TextRate(rate = "63%", type = "Rotten Tomatoes",isPresentageRate = true)
-                    TextRate(rate = "4", type = "IGN")
+                    TextRate(rate = stringResource(R.string._6_8),
+                        type = stringResource(R.string.imdb))
+                    TextRate(rate = stringResource(R.string._63),
+                        type = stringResource(R.string.rotten_tomatoes),isPresentageRate = true)
+                    TextRate(rate = stringResource(R.string._4), type = stringResource(R.string.ign))
 
                 }
-                CustomText(title = "Fantastic Beasts: The \n Secrets of Dumbledore ")
+                CustomText(title = stringResource(R.string.fantastic_beasts_the_secrets_of_dumbledore))
                 Row() {
-                    CustomChip(text = "Fantasy", modifier = Modifier.padding(4.dp),) {}
-                    CustomChip(text = "Adventure", modifier = Modifier.padding(4.dp),) {}
+                    CustomChip(text = stringResource(R.string.fantasy),
+                        modifier = Modifier.padding(space_4),) {}
+                    CustomChip(text = stringResource(R.string.adventure),
+                        modifier = Modifier.padding(space_4),) {}
                 }
                 CastImages()
                 Text(
-                    text = "Professor Albus Dumbledore knows the powerful," +
-                            "dark wizard Gellert Grindelwald is moving to seize" +
-                            "control of the wizarding world. Unable to stop him...",
-                    color = Color.Black,
-                    fontSize = 14.sp,
-                    modifier = Modifier.padding(horizontal = 16.dp),
-                    textAlign = TextAlign.Justify,
+                    text = stringResource(R.string.professor_albus_dumbledore_knows_the_powerful) +
+                            stringResource(R.string.dark_wizard_gellert_grindelwald_is_moving_to_seize) +
+                            stringResource(R.string.control_of_the_wizarding_world_unable_to_stop_him),
+                    style = MaterialTheme.typography.titleMedium.merge(TextStyles.MeduimTextStyle()),
+                    modifier = Modifier.padding(horizontal = space_16),
                 )
                 IconButton(
                     image = R.drawable.wallet,
-                    title="Booking" ,
-                    modifier = Modifier.padding(16.dp).height(48.dp)
-
+                    title= stringResource(R.string.booking) ,
+                    modifier = Modifier.padding(space_16).height(space_48)
                 ){}
             }
         }
