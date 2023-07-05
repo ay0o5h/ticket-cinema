@@ -4,9 +4,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import com.teckiti.ui.theme.space_8
 
 @Composable
 fun SpacerVertical8() {
-    Spacer(Modifier.height(8.dp))
+    Spacer(Modifier.height(space_8))
 }

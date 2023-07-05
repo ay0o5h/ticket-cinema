@@ -3,7 +3,6 @@ import ImageSlider
 import android.annotation.SuppressLint
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,9 +15,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.BottomNavigation
 import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
@@ -27,35 +24,26 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.BlurredEdgeTreatment
 import androidx.compose.ui.draw.blur
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawWithContent
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.skydoves.cloudy.Cloudy
+
 import com.teckiti.R
-import com.teckiti.composable.BackgroundBlurImage
+import com.teckiti.composable.BackgroundBlur
 import com.teckiti.composable.BottomNav
 import com.teckiti.composable.CustomChip
 import com.teckiti.composable.CustomText
-import com.teckiti.composable.NavigationItem
 import com.teckiti.composable.OutlineButton
 import com.teckiti.composable.PrimaryButton
 import com.teckiti.composable.SpacerVertical16
 import com.teckiti.composable.SpacerVertical32
+import com.teckiti.ui.theme.degree_0_4f
 import com.teckiti.ui.theme.fontSize_16
-import com.teckiti.ui.theme.primary
 import com.teckiti.ui.theme.space_16
+import com.teckiti.ui.theme.space_32
 import com.teckiti.ui.theme.space_4
 import com.teckiti.ui.theme.space_8
 import com.teckiti.utils.Constans
@@ -88,8 +76,17 @@ private fun HomeContent(
     Box(
         modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState())
     ) {
-        BackgroundBlurImage(
-            painter = painterResource(id = Constans.imageList[pagerState.currentPage]))
+        BackgroundBlur{
+            Image(
+                painter = painterResource(id = Constans.imageList[pagerState.currentPage]),
+                contentDescription = null,
+                contentScale = ContentScale.FillBounds,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight(degree_0_4f)
+                    .blur(radius = space_32)
+            )
+        }
         Column(
             modifier = Modifier
                 .matchParentSize(),
@@ -109,7 +106,8 @@ private fun HomeContent(
                 ) {}
             }
             SpacerVertical16()
-            ImageSlider(imageList = Constans.imageList, pagerState = pagerState)
+            ImageSlider(imageList = Constans.imageList, pagerState = pagerState){
+            }
             SpacerVertical16()
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(space_8),

@@ -22,10 +22,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.teckiti.R
+import com.teckiti.ui.theme.fontSize_12
 import com.teckiti.ui.theme.primary
+import com.teckiti.ui.theme.space_0
+import com.teckiti.ui.theme.space_16
+import com.teckiti.ui.theme.space_4
+import com.teckiti.ui.theme.space_56
+import com.teckiti.ui.theme.space_8
 
 @Composable
 fun RowScope.NavigationItem(
@@ -41,8 +45,8 @@ fun RowScope.NavigationItem(
         icon = {
             Row(
                 modifier = modifier
-                    .size(52.dp)
-                    .clip(if (isSelected) CircleShape else RoundedCornerShape(0.dp))
+                    .size(space_56)
+                    .clip(if (isSelected) CircleShape else RoundedCornerShape(space_0))
                     .background(if (isSelected) primary else Color.Transparent),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center,
@@ -53,7 +57,7 @@ fun RowScope.NavigationItem(
                     tint = if (isSelected) Color.White else Color.Gray
                 )
                 otherContent?.let {
-                    Spacer(modifier = Modifier.width(4.dp))
+                    Spacer(modifier = Modifier.width(space_4))
                     it()
                 }
             }
@@ -66,8 +70,8 @@ fun RowScope.NavigationItem(
 fun BottomNav(){
     BottomNavigation(
         backgroundColor = Color.Transparent,
-        elevation = 0.dp,
-        modifier = Modifier.padding(bottom = 8.dp)
+        elevation = space_0,
+        modifier = Modifier.padding(bottom = space_8)
     ) {
         NavigationItem(painter = painterResource(id = R.drawable.movie), isSelected = true)
         NavigationItem(painter = painterResource(id = R.drawable.search))
@@ -75,10 +79,10 @@ fun BottomNav(){
             Text(
                 text = "5",
                 textAlign = TextAlign.Center,
-                fontSize = 12.sp,
+                fontSize = fontSize_12,
                 color = Color.White,
                 modifier = Modifier
-                    .size(18.dp)
+                    .size(space_16)
                     .clip(CircleShape)
                     .background(primary),
             )

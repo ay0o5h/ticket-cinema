@@ -8,8 +8,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.unit.sp
 import com.teckiti.ui.theme.Gray
+import com.teckiti.ui.theme.fontSize_12
+import com.teckiti.ui.theme.fontSize_14
 
 @Composable
 fun TextRate(
@@ -30,12 +31,12 @@ fun TextRate(
                     }
                 }
             },
-            fontSize = 14.sp
+            fontSize = fontSize_14
         )
         Text(
             text = type,
             color = Gray,
-            fontSize = 12.sp
+            fontSize = fontSize_12
         )
     }
 }

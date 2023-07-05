@@ -12,16 +12,13 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Chip
 import androidx.compose.material.ChipDefaults
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.sp
-import com.teckiti.ui.theme.Gray
-import com.teckiti.ui.theme.GrayBrown40
+import com.teckiti.ui.theme.Gray40
 import com.teckiti.ui.theme.space_16
 import com.teckiti.ui.theme.space_4
 import com.teckiti.utils.Constans
@@ -36,11 +33,9 @@ fun DatePickerCustom(
     Chip(
         onClick ={},
         shape = RoundedCornerShape(space_16),
-
-
         border = BorderStroke(
             ChipDefaults.OutlinedBorderSize,
-            GrayBrown40
+            Gray40
         ),
         colors = ChipDefaults.chipColors(
             backgroundColor = Color.Transparent,
@@ -54,20 +49,12 @@ fun DatePickerCustom(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-
                 text = dayNumber.toString(),
-                color = Color.Black,
-                fontSize = 22.sp,
-                fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center
+                style = MaterialTheme.typography.titleLarge.merge(TextStyles.LargeTextStyle()),
             )
             Text(
                 text = dayName,
-                color = Gray,
-                fontSize = 14.sp,
-                textAlign = TextAlign.Center,
-
-
+                style = MaterialTheme.typography.titleMedium.merge(TextStyles.MeduimGrayTextStyle()),
                 )
         }
     }
@@ -84,7 +71,6 @@ fun DatePickerHorizintal(){
                 dayNumber = day.dayNumber,
                 dayName = day.dayName
             )
-
         }
     }
 }

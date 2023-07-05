@@ -4,7 +4,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,12 +11,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -29,45 +26,35 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.teckiti.R
-import com.teckiti.composable.BookingHeader
+import com.teckiti.composable.BlurBg
 import com.teckiti.composable.CastImages
+import com.teckiti.composable.CloseButton
 import com.teckiti.composable.CustomChip
 import com.teckiti.composable.CustomText
 import com.teckiti.composable.IconButton
 import com.teckiti.composable.PlayButton
 import com.teckiti.composable.SpacerVertical128
-import com.teckiti.composable.SpacerVertical16
-import com.teckiti.composable.SpacerVertical8
+import com.teckiti.composable.SpacerVertical4
 import com.teckiti.composable.TextRate
 import com.teckiti.composable.TextStyles
-import com.teckiti.screens.home.HomeScreen
-import com.teckiti.ui.theme.Gray
+import com.teckiti.ui.theme.degree_0_56f
+import com.teckiti.ui.theme.fontSize_12
 import com.teckiti.ui.theme.radius_10
 import com.teckiti.ui.theme.space_16
 import com.teckiti.ui.theme.space_32
 import com.teckiti.ui.theme.space_4
 import com.teckiti.ui.theme.space_48
 import com.teckiti.ui.theme.space_8
-import com.teckiti.utils.Constans
-import kotlin.math.roundToInt
 
 @Composable
-fun BookingScreen() {
-    BookingContent()
+fun DetailsScreen() {
+    DetailsContent()
 }
 
 @Composable
-private fun BookingContent() {
+private fun DetailsContent() {
     Box(modifier = Modifier.fillMaxSize()
         .verticalScroll(rememberScrollState()))
     {
@@ -80,7 +67,29 @@ private fun BookingContent() {
         Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier
             .fillMaxSize()
             .padding(top = space_32)){
-            BookingHeader()
+            CloseButton(onClick = {}){
+                BlurBg(
+                    modifier= Modifier.padding(space_4)
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.clock),
+                            contentDescription = stringResource(R.string.date),
+                            tint = Color.White,
+                            modifier = Modifier.size(space_16),
+                        )
+                        SpacerVertical4()
+                        Text(
+                            text = stringResource(R.string._2h_23m),
+                            fontSize= fontSize_12,
+                            color = Color.White,
+                        )
+                    }
+                }
+            }
             SpacerVertical128()
             PlayButton()
         }
@@ -88,7 +97,7 @@ private fun BookingContent() {
             modifier = Modifier
                 .clip(RoundedCornerShape(topStartPercent = radius_10, topEndPercent = radius_10))
                 .fillMaxWidth()
-                .fillMaxHeight(0.56f)
+                .fillMaxHeight(degree_0_56f)
                 .align(Alignment.BottomCenter),
             color=Color.White
         ) {
@@ -136,6 +145,6 @@ private fun BookingContent() {
 
 @Preview
 @Composable
-fun BookingScreenPreview() {
-    BookingScreen()
+fun DetailsScreenPreview() {
+    DetailsScreen()
 }

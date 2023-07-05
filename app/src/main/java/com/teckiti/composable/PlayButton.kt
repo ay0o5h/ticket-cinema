@@ -13,15 +13,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
 import com.teckiti.R
 import com.teckiti.ui.theme.primary
+import com.teckiti.ui.theme.space_20
+import com.teckiti.ui.theme.space_48
 
 @Composable
 fun PlayButton() {
     IconButton(
         onClick = {},
-        modifier = Modifier.size(48.dp)
+        modifier = Modifier.size(space_48)
     ) {
         Box(
             modifier = Modifier
@@ -34,7 +35,7 @@ fun PlayButton() {
                 painter = painterResource(id = R.drawable.play),
                 tint= Color.White,
                 contentDescription = "",
-                modifier = Modifier.size(20.dp)
+                modifier = Modifier.size(space_20)
             )
         }
     }

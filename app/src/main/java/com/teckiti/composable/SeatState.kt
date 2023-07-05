@@ -13,9 +13,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.teckiti.ui.theme.Gray
+import com.teckiti.ui.theme.fontSize_14
+import com.teckiti.ui.theme.space_12
+import com.teckiti.ui.theme.space_8
 
 @Composable
 fun SeatState(
@@ -25,15 +26,15 @@ fun SeatState(
     Row(verticalAlignment = Alignment.CenterVertically) {
         Box(
             modifier = Modifier
-                .size(12.dp)
+                .size(space_12)
                 .clip(CircleShape)
                 .background(color)
         )
-        Spacer(modifier = Modifier.width(8.dp))
+        Spacer(modifier = Modifier.width(space_8))
         Text(
             text = name,
             color = Gray,
-            fontSize = 14.sp
+            fontSize = fontSize_14
         )
     }
 }

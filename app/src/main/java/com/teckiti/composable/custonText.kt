@@ -5,15 +5,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.sp
+import com.teckiti.ui.theme.fontSize_20
 
 @Composable
 fun CustomText(title:String,modifier: Modifier=Modifier){
     Text(text = title,
         color = Color.Black ,
-        fontSize=20.sp,
+        fontSize= fontSize_20,
         fontWeight = FontWeight.W500,
         modifier=modifier
     )
-
 }

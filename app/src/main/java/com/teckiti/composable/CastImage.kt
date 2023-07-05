@@ -13,7 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
+import com.teckiti.ui.theme.space_16
+import com.teckiti.ui.theme.space_4
+import com.teckiti.ui.theme.space_56
 import com.teckiti.utils.Constans
 
 
@@ -21,14 +23,14 @@ import com.teckiti.utils.Constans
     fun CastImages() {
         LazyRow(
             modifier = Modifier.fillMaxWidth(),
-            contentPadding = PaddingValues(16.dp),
-            horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+            contentPadding = PaddingValues(space_16),
+            horizontalArrangement = Arrangement.spacedBy(space_4)) {
             items(Constans.cast) { imageResId ->
                 Image(
                     painter = painterResource(imageResId),
                     contentDescription = null,
                     modifier = Modifier
-                        .size(56.dp)
+                        .size(space_56)
                         .clip(CircleShape),
                     contentScale = ContentScale.Crop
 

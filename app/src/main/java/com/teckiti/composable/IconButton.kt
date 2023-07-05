@@ -10,10 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.teckiti.ui.theme.TextWhite
+import com.teckiti.ui.theme.fontSize_16
 import com.teckiti.ui.theme.primary
+import com.teckiti.ui.theme.space_4
 
 @Composable
 fun IconButton(
@@ -28,7 +28,7 @@ fun IconButton(
         colors = ButtonDefaults.buttonColors(containerColor = primary),
     ) {
         Icon(painter = painterResource(id = image), contentDescription ="",tint= Color.White )
-        Spacer(modifier = Modifier.width(4.dp))
-        Text(text = title, color = TextWhite, fontSize = 16.sp)
+        Spacer(modifier = Modifier.width(space_4))
+        Text(text = title, color = TextWhite, fontSize = fontSize_16)
     }
 }
