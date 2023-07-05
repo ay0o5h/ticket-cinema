@@ -8,5 +8,6 @@ val Gray40 = Color(0x44BBBBBB)
 
 
 val Gray = Color(0xFF858E90)
+val Gray20 = Color(0x20FFFFFF)
 val TextWhite = Color(0xFFEAF0F3)
 val Gray_E = Color(0x5EFFFFFF)

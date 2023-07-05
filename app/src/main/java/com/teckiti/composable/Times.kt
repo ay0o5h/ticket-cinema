@@ -12,7 +12,10 @@ import com.teckiti.ui.theme.space_4
 import com.teckiti.utils.Constans
 
 @Composable
-fun Times(){
+fun Times(
+    selectedTime: String,
+    onSelectedTime: (String) -> Unit ,
+){
     LazyRow(
         modifier = Modifier.fillMaxWidth(),
         contentPadding = PaddingValues(space_16),
@@ -20,7 +23,10 @@ fun Times(){
         items(Constans.times) { hour ->
             CustomChip(
                 text = hour,
-            ){}
+                isSelected = selectedTime == hour
+            ){
+                onSelectedTime(hour)
+            }
         }
     }
 }

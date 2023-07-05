@@ -20,14 +20,7 @@ object TextStyles {
         )
     }
 
-    @Composable
-    fun MeduimGrayTextStyle(): TextStyle {
-        return TextStyle(
-            color = Gray,
-            fontSize = fontSize_14,
-            textAlign = TextAlign.Center,
-        )
-    }
+
     @Composable
     fun MeduimTextStyle(): TextStyle {
         return TextStyle(

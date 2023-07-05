@@ -71,5 +71,7 @@ dependencies {
     implementation "androidx.compose.material:material:1.4.3"
     implementation "com.google.accompanist:accompanist-systemuicontroller:0.27.0"
     implementation "com.github.skydoves:cloudy:0.1.2"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+    implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
 
 }

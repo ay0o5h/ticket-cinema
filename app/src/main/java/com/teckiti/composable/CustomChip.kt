@@ -9,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.teckiti.ui.theme.Gray
 import com.teckiti.ui.theme.Gray40
 import com.teckiti.ui.theme.space_16
 
@@ -17,6 +18,7 @@ import com.teckiti.ui.theme.space_16
 fun CustomChip(
     text : String ="",
     modifier: Modifier=Modifier,
+    isSelected: Boolean = false,
     onClick: () -> Unit
 ){
     Chip(
@@ -29,10 +31,17 @@ fun CustomChip(
             Gray40
         ),
         colors = ChipDefaults.chipColors(
-            backgroundColor = Color.Transparent,
+            backgroundColor =when (isSelected) {
+                true -> Gray
+                false -> Color.Transparent
+            },
+
             contentColor = Color.Black
         ),
     ){
-        Text(text)
+        Text(text,  color =when(isSelected) {
+            true -> Color.White
+            false -> Gray
+        },)
     }
 }

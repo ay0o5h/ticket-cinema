@@ -23,8 +23,6 @@ class MainActivity : ComponentActivity() {
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
             )
-
-
             TeckitiTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),

@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.teckiti.models.RoutesNames
 import com.teckiti.screens.booking.BookingScreen
+import com.teckiti.screens.booking.BookingViewModel
 import com.teckiti.screens.details.DetailsScreen
 import com.teckiti.screens.home.HomeScreen
 
@@ -23,7 +24,7 @@ fun TicketNavGraph(
             DetailsScreen(navController)
         }
         composable(RoutesNames.BOOKING) {
-            BookingScreen(navController)
+            BookingScreen(navController,BookingViewModel())
         }
 
     }
