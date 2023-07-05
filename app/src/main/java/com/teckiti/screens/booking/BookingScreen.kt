@@ -1,4 +1,4 @@
-package com.teckiti.screens.BuyTicket
+package com.teckiti.screens.booking
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -23,6 +23,8 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.teckiti.R
 import com.teckiti.composable.BookingFooter
 import com.teckiti.composable.CloseButton
@@ -38,13 +40,18 @@ import com.teckiti.ui.theme.space_32
 import com.teckiti.ui.theme.space_72
 
 @Composable
-fun BookingScreen() {
-    BookingContent()
+fun BookingScreen(navController: NavHostController,
+) {
+    BookingContent(){
+       navController.navigateUp()
+    }
 }
 
 
 @Composable
-fun BookingContent() {
+fun BookingContent(
+    onGoBack: () -> Unit,
+) {
 
     Box(
         modifier = Modifier
@@ -55,7 +62,7 @@ fun BookingContent() {
         Box(
             modifier = Modifier.padding(top = space_32, start = space_16)
         ) {
-            CloseButton(onClick = {}){}
+            CloseButton(onClick = {onGoBack()}){}
         }
 
         Image(
@@ -109,5 +116,5 @@ fun BookingContent() {
 @Preview
 @Composable
 fun BookingScreenPreview() {
-    BookingScreen()
+    BookingScreen(rememberNavController())
 }

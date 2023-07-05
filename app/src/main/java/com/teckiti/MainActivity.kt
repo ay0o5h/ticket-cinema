@@ -8,10 +8,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.teckiti.screens.BuyTicket.BookingScreen
-import com.teckiti.screens.booking.DetailsScreen
+import androidx.navigation.compose.rememberNavController
+import com.teckiti.screens.booking.BookingScreen
+import com.teckiti.screens.details.DetailsScreen
 import com.teckiti.screens.home.HomeScreen
 import com.teckiti.ui.theme.TeckitiTheme
+import com.teckiti.utils.TicketNavGraph
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,14 +24,14 @@ class MainActivity : ComponentActivity() {
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
             )
 
+
             TeckitiTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = Color.White
                 ) {
-//                    val navController = rememberNavController()
-//                    TicketNavGraph(navController = navController, START_DESTINATION)
-                    BookingScreen()
+                    val navController = rememberNavController()
+                    TicketNavGraph(navController = navController)
                 }
             }
         }

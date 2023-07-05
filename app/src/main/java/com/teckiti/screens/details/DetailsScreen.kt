@@ -1,4 +1,4 @@
-package com.teckiti.screens.booking
+package com.teckiti.screens.details
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -27,6 +27,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.teckiti.R
 import com.teckiti.composable.BlurBg
 import com.teckiti.composable.CastImages
@@ -39,6 +41,7 @@ import com.teckiti.composable.SpacerVertical128
 import com.teckiti.composable.SpacerVertical4
 import com.teckiti.composable.TextRate
 import com.teckiti.composable.TextStyles
+import com.teckiti.models.RoutesNames
 import com.teckiti.ui.theme.degree_0_56f
 import com.teckiti.ui.theme.fontSize_12
 import com.teckiti.ui.theme.radius_10
@@ -49,13 +52,23 @@ import com.teckiti.ui.theme.space_48
 import com.teckiti.ui.theme.space_8
 
 @Composable
-fun DetailsScreen() {
-    DetailsContent()
+fun DetailsScreen(navController: NavHostController,
+) {
+    DetailsContent(
+        onGoToBooking = {
+         navController.navigate(RoutesNames.BOOKING)
+        },
+        onGoBack = { navController.navigateUp() }
+    )
 }
 
 @Composable
-private fun DetailsContent() {
-    Box(modifier = Modifier.fillMaxSize()
+private fun DetailsContent(
+    onGoToBooking: () -> Unit ,
+    onGoBack: () -> Unit ,
+) {
+    Box(modifier = Modifier
+        .fillMaxSize()
         .verticalScroll(rememberScrollState()))
     {
         Image(
@@ -67,7 +80,7 @@ private fun DetailsContent() {
         Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier
             .fillMaxSize()
             .padding(top = space_32)){
-            CloseButton(onClick = {}){
+            CloseButton(onClick = { onGoBack()}){
                 BlurBg(
                     modifier= Modifier.padding(space_4)
                 ) {
@@ -136,8 +149,12 @@ private fun DetailsContent() {
                 IconButton(
                     image = R.drawable.wallet,
                     title= stringResource(R.string.booking) ,
-                    modifier = Modifier.padding(space_16).height(space_48)
-                ){}
+                    modifier = Modifier
+                        .padding(space_16)
+                        .height(space_48)
+                ){
+                    onGoToBooking()
+                }
             }
         }
     }
@@ -146,5 +163,5 @@ private fun DetailsContent() {
 @Preview
 @Composable
 fun DetailsScreenPreview() {
-    DetailsScreen()
+    DetailsScreen(rememberNavController())
 }

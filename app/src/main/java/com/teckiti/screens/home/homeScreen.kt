@@ -30,6 +30,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
 import com.teckiti.R
 import com.teckiti.composable.BackgroundBlur
@@ -40,6 +42,7 @@ import com.teckiti.composable.OutlineButton
 import com.teckiti.composable.PrimaryButton
 import com.teckiti.composable.SpacerVertical16
 import com.teckiti.composable.SpacerVertical32
+import com.teckiti.models.RoutesNames
 import com.teckiti.ui.theme.degree_0_4f
 import com.teckiti.ui.theme.fontSize_16
 import com.teckiti.ui.theme.space_16
@@ -53,7 +56,7 @@ import com.teckiti.utils.Constans
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun HomeScreen(
-//    navController: NavHostController,
+    navController: NavHostController,
 ){
     val pagerState = rememberPagerState(
         initialPage = Constans.imageList.size / 2
@@ -64,14 +67,17 @@ fun HomeScreen(
         },
 
     ){
-        HomeContent(pagerState = pagerState)
+        HomeContent(pagerState = pagerState){
+            navController.navigate(RoutesNames.DETAILS)
+        }
     }
 }
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun HomeContent(
-    pagerState : PagerState
+    pagerState : PagerState,
+    onGoToDetails: () -> Unit ,
 ) {
     Box(
         modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState())
@@ -106,7 +112,9 @@ private fun HomeContent(
                 ) {}
             }
             SpacerVertical16()
-            ImageSlider(imageList = Constans.imageList, pagerState = pagerState){
+            ImageSlider(imageList = Constans.imageList,
+                pagerState = pagerState){
+                onGoToDetails()
             }
             SpacerVertical16()
                 Row(
@@ -132,5 +140,5 @@ private fun HomeContent(
 @Preview
 @Composable
 fun HomeScreenPreview() {
-    HomeScreen()
+    HomeScreen( rememberNavController())
 }
