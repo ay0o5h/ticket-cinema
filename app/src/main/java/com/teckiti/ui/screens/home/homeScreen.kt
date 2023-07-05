@@ -1,4 +1,4 @@
-package com.teckiti.screens.home
+package com.teckiti.ui.screens.home
 import ImageSlider
 import android.annotation.SuppressLint
 import androidx.compose.foundation.ExperimentalFoundationApi

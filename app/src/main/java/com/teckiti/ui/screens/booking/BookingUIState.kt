@@ -1,4 +1,4 @@
-package com.teckiti.screens.booking
+package com.teckiti.ui.screens.booking
 
 import com.teckiti.models.Day
 

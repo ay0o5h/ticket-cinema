@@ -1,4 +1,4 @@
-package com.teckiti.screens.details
+package com.teckiti.ui.screens.details
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement

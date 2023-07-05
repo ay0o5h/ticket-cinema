@@ -1,4 +1,4 @@
-package com.teckiti.screens.booking
+package com.teckiti.ui.screens.booking
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
@@ -47,7 +47,6 @@ import com.teckiti.ui.theme.space_32
 @SuppressLint("StateFlowValueCalledInComposition")
 @Composable
 fun BookingScreen(
-
     navController: NavHostController,
     viewModel: BookingViewModel = hiltViewModel(),
 ) {

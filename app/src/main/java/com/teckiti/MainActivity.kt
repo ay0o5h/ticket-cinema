@@ -9,12 +9,10 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.rememberNavController
-import com.teckiti.screens.booking.BookingScreen
-import com.teckiti.screens.details.DetailsScreen
-import com.teckiti.screens.home.HomeScreen
 import com.teckiti.ui.theme.TeckitiTheme
-import com.teckiti.utils.TicketNavGraph
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -26,9 +26,6 @@ fun ImageSlider(
     modifier: Modifier = Modifier,
 onClick: () -> Unit
 ) {
-
-
-
     HorizontalPager(
         state = pagerState,
         pageCount = imageList.size,
