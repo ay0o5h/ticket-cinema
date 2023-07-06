@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
@@ -19,7 +20,7 @@ import com.teckiti.ui.theme.space_12
 import com.teckiti.ui.theme.space_8
 
 @Composable
-fun SeatState(
+fun MoviesSeatReservationStatus(
     name: String,
     color: Color
 ){

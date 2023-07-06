@@ -31,7 +31,7 @@ import com.teckiti.utils.Constants
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun DatePickerCustom(
+fun MovieDisplayDaysChip(
     dayNumber : Int,
     dayName : String,
     isSelected: Boolean = false,
@@ -77,7 +77,7 @@ fun DatePickerCustom(
 }
 
 @Composable
-fun DatePickerHorizintal(
+fun MovieDisplayDays(
     onClick: (Day) -> Unit ,
     selectedDay: Day
 ){
@@ -87,7 +87,7 @@ fun DatePickerHorizintal(
         contentPadding = PaddingValues(space_16),
         horizontalArrangement = Arrangement.spacedBy(space_4)) {
         items(Constants.daysMoviePlay) { day ->
-            DatePickerCustom(
+            MovieDisplayDaysChip(
                 dayNumber = day.dayNumber,
                 dayName = day.dayName,
                 isSelected = day == selectedDay,

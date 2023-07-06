@@ -13,7 +13,7 @@ import com.teckiti.ui.theme.space_4
 import com.teckiti.utils.Constants
 
 @Composable
-fun Times(
+fun MovieDisplayTimes(
     selectedTime: String,
     onSelectedTime: (String) -> Unit ,
 ){

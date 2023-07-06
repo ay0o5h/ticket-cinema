@@ -35,7 +35,7 @@ onClick: () -> Unit
     ) {
         val animatedScale by animateFloatAsState(
             targetValue = if (it == pagerState.currentPage) 1f else 0.8f,
-            animationSpec = tween(durationMillis = 300)
+            animationSpec = tween(durationMillis = 400)
         )
 
         Image(

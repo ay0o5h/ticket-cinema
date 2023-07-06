@@ -12,7 +12,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -31,11 +33,12 @@ import androidx.navigation.compose.rememberNavController
 import com.teckiti.R
 import com.teckiti.ui.screens.booking.composable.BookingFooter
 import com.teckiti.composable.CloseButton
-import com.teckiti.ui.screens.booking.composable.DatePickerHorizintal
 import com.teckiti.ui.screens.booking.composable.PairOfChairs
-import com.teckiti.ui.screens.booking.composable.SeatState
-import com.teckiti.ui.screens.booking.composable.Times
 import com.teckiti.models.Day
+import com.teckiti.ui.screens.booking.composable.CinemaSeats
+import com.teckiti.ui.screens.booking.composable.MovieDisplayDays
+import com.teckiti.ui.screens.booking.composable.MovieDisplayTimes
+import com.teckiti.ui.screens.booking.composable.MoviesSeatReservationStatus
 import com.teckiti.ui.theme.degree_70f
 import com.teckiti.ui.theme.primary
 import com.teckiti.ui.theme.radius_10
@@ -70,101 +73,81 @@ fun BookingContent(
     onGoBack: () -> Unit,
 ) {
 
-    LazyColumn(
+    Box(
         modifier = Modifier
             .fillMaxSize()
             .background(color = Color.Black)
+            .verticalScroll(rememberScrollState())
+
     ) {
-
-        item() {
-            Box(
-                modifier = Modifier.padding(top = space_32, start = space_16)
-            ) {
-                CloseButton(onClick = { onGoBack() }) {}
-            }
-        }
-
-        item() {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier
+                .fillMaxSize()
+                .padding(top = space_32)
+        ) {
+            CloseButton(
+                onClick = { onGoBack() }) {}
             Image(
                 modifier = Modifier
                     .graphicsLayer { rotationX = -degree_70f },
                 painter = painterResource(R.drawable.cinema_screen), contentDescription = ""
             )
-        }
-
-
-        items(5) {
+            CinemaSeats()
             Row(
                 modifier = Modifier
-                    .fillMaxWidth().padding(horizontal = space_16, vertical = space_2),
-                horizontalArrangement = Arrangement.SpaceBetween,
-            ) {
-                repeat(3) {
-                    PairOfChairs(
-                        modifier = Modifier.graphicsLayer {
-                            rotationZ = if (it == 0) 10f else if (it == 1) 0f else -10f
-                            translationY = if (it == 1) 20f else 0f
-                        },
-                    )
-                }
-            }
-        }
-        item() {
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth().padding(vertical = space_20),
+                    .fillMaxWidth()
+                    .padding(vertical = space_20),
                 horizontalArrangement = Arrangement.SpaceAround,
             ) {
-                SeatState(
+                MoviesSeatReservationStatus(
                     name = stringResource(R.string.available),
                     color = Color.White
                 )
-                SeatState(
+                MoviesSeatReservationStatus(
                     name = stringResource(R.string.reserved),
                     color = Color.Gray
                 )
-                SeatState(
+                MoviesSeatReservationStatus(
                     name = stringResource(R.string.selected),
                     color = primary
                 )
             }
+
         }
 
-        item() {
-            Surface(
-                modifier = Modifier
-                    .clip(
-                        RoundedCornerShape(
-                            topStartPercent = radius_10,
-                            topEndPercent = radius_10
-                        )
+        Surface(
+            modifier = Modifier
+                .clip(
+                    RoundedCornerShape(
+                        topStartPercent = radius_10,
+                        topEndPercent = radius_10
                     )
-                    .fillMaxWidth()
-                    .fillMaxHeight(70f) ,
-                color = Color.White
+                )
+                .fillMaxWidth()
+                .fillMaxHeight(50f)
+                .align(Alignment.BottomCenter),
+            color = Color.White,
+
             ) {
-                Column(
-                    modifier = Modifier.padding(vertical = space_16),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    DatePickerHorizintal(
-                        onClick = { day: Day -> onSelectDate(day) },
-                        selectedDay = selectedDay
+            Column(
+                modifier = Modifier.padding(vertical = space_16),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                MovieDisplayDays(
+                    onClick = { day: Day -> onSelectDate(day) },
+                    selectedDay = selectedDay
 
-                    )
-                    Times(
-                        selectedTime = selectedTime
-                    ){
-                            time: String -> onSelectTime(time)
-                    }
-                    BookingFooter()
+                )
+                MovieDisplayTimes(
+                    selectedTime = selectedTime
+                ){
+                        time: String -> onSelectTime(time)
                 }
+                BookingFooter()
             }
-
         }
-
     }
+
 }
 @Preview
 @Composable

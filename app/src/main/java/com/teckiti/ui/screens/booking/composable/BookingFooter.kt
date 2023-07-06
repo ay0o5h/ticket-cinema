@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,6 +16,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import com.teckiti.R
 import com.teckiti.composable.IconButton
+import com.teckiti.composable.TextStyles
 import com.teckiti.ui.theme.Gray
 import com.teckiti.ui.theme.fontSize_12
 import com.teckiti.ui.theme.fontSize_24
@@ -31,14 +33,11 @@ fun BookingFooter() {
             horizontalAlignment = Alignment.Start) {
             Text(
                 text = stringResource(R.string._100_00),
-                fontSize = fontSize_24,
-                fontWeight = FontWeight.Bold,
-                color = Color.Black,
-            )
+                style = MaterialTheme.typography.titleLarge.merge(TextStyles.ExtraTextStyle()),
+                )
             Text(
                 text = stringResource(R.string._4_tickets),
-                fontSize = fontSize_12,
-                color = Gray,
+                style = MaterialTheme.typography.titleSmall.merge(TextStyles.SmallTextStyle()),
             )
 
         }
