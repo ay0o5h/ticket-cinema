@@ -12,7 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.teckiti.R
 import com.teckiti.ui.theme.space_20
-
+import androidx.compose.material.IconButton
 @Composable
 fun PairOfChairs(
     modifier: Modifier = Modifier,
@@ -36,9 +36,7 @@ fun ChairItem(
     modifier: Modifier = Modifier,
     ocClickChair: () -> Unit,
 ) {
-
-
-        androidx.compose.material.IconButton(
+        IconButton(
             onClick = { ocClickChair() },
         ) {
             Icon(
@@ -48,5 +46,4 @@ fun ChairItem(
                 modifier = modifier.size(space_20).padding(0.dp),
             )
         }
-
 }
