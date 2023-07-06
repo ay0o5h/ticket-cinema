@@ -12,7 +12,7 @@ import com.teckiti.ui.theme.Gray_E
 import com.teckiti.ui.theme.space_0
 
 @Composable
-fun BlurBg(
+fun BlurredCard(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit
 ){

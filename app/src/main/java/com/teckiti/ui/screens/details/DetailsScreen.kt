@@ -30,16 +30,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.teckiti.R
-import com.teckiti.composable.BlurBg
-import com.teckiti.composable.CastImages
+import com.teckiti.composable.BlurredCard
+import com.teckiti.ui.screens.details.composable.CastImages
 import com.teckiti.composable.CloseButton
 import com.teckiti.composable.CustomChip
-import com.teckiti.composable.CustomText
+
 import com.teckiti.composable.IconButton
-import com.teckiti.composable.PlayButton
+import com.teckiti.ui.screens.details.composable.PlayButton
+import com.teckiti.ui.screens.details.composable.RateItem
 import com.teckiti.composable.SpacerVertical128
 import com.teckiti.composable.SpacerVertical4
-import com.teckiti.composable.TextRate
 import com.teckiti.composable.TextStyles
 import com.teckiti.models.RoutesNames
 import com.teckiti.ui.theme.degree_0_56f
@@ -80,8 +80,9 @@ private fun DetailsContent(
         Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier
             .fillMaxSize()
             .padding(top = space_32)){
-            CloseButton(onClick = { onGoBack()}){
-                BlurBg(
+            CloseButton(onClick = { onGoBack()})
+            {
+                BlurredCard(
                     modifier= Modifier.padding(space_4)
                 ) {
                     Row(
@@ -124,14 +125,18 @@ private fun DetailsContent(
                         .padding(horizontal = space_16, vertical = space_8),
                     horizontalArrangement = Arrangement.SpaceAround,
                 ) {
-                    TextRate(rate = stringResource(R.string._6_8),
+                    RateItem(rate = stringResource(R.string._6_8),
                         type = stringResource(R.string.imdb))
-                    TextRate(rate = stringResource(R.string._63),
+                    RateItem(rate = stringResource(R.string._63),
                         type = stringResource(R.string.rotten_tomatoes),isPresentageRate = true)
-                    TextRate(rate = stringResource(R.string._4), type = stringResource(R.string.ign))
+                    RateItem(rate = stringResource(R.string._4), type = stringResource(R.string.ign))
 
                 }
-                CustomText(title = stringResource(R.string.fantastic_beasts_the_secrets_of_dumbledore))
+                Text(
+                    text = stringResource(R.string.fantastic_beasts_the_secrets_of_dumbledore),
+                    style = MaterialTheme.typography.titleMedium.merge(TextStyles.TextStyle20())
+
+                )
                 Row() {
                     CustomChip(text = stringResource(R.string.fantasy),
                         modifier = Modifier.padding(space_4),) {}

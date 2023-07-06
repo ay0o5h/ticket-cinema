@@ -29,12 +29,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.teckiti.R
-import com.teckiti.composable.BookingFooter
+import com.teckiti.ui.screens.booking.composable.BookingFooter
 import com.teckiti.composable.CloseButton
-import com.teckiti.composable.DatePickerHorizintal
-import com.teckiti.composable.PairOfChairs
-import com.teckiti.composable.SeatState
-import com.teckiti.composable.Times
+import com.teckiti.ui.screens.booking.composable.DatePickerHorizintal
+import com.teckiti.ui.screens.booking.composable.PairOfChairs
+import com.teckiti.ui.screens.booking.composable.SeatState
+import com.teckiti.ui.screens.booking.composable.Times
 import com.teckiti.models.Day
 import com.teckiti.ui.theme.degree_70f
 import com.teckiti.ui.theme.primary

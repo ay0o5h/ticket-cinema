@@ -6,20 +6,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.drawWithContent
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import com.teckiti.ui.theme.degree_0
 import com.teckiti.ui.theme.degree_0_1f
 import com.teckiti.ui.theme.degree_0_2f
 import com.teckiti.ui.theme.degree_0_3f
-import com.teckiti.ui.theme.degree_0_4f
-import com.teckiti.ui.theme.degree_0_5f
-import com.teckiti.ui.theme.degree_0_6f
 import com.teckiti.ui.theme.space_32
 
 @Composable
-fun BackgroundBlur(
+fun GradientOverlay(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit
 ) {

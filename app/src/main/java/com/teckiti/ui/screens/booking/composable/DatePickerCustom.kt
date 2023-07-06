@@ -1,4 +1,4 @@
-package com.teckiti.composable
+package com.teckiti.ui.screens.booking.composable
 
 import android.util.Log
 import androidx.compose.foundation.BorderStroke
@@ -20,13 +20,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
+import com.teckiti.composable.TextStyles
 import com.teckiti.models.Day
 import com.teckiti.ui.theme.Gray
 import com.teckiti.ui.theme.Gray40
 import com.teckiti.ui.theme.fontSize_14
 import com.teckiti.ui.theme.space_16
 import com.teckiti.ui.theme.space_4
-import com.teckiti.utils.Constans
+import com.teckiti.utils.Constants
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -85,7 +86,7 @@ fun DatePickerHorizintal(
         modifier = Modifier.fillMaxWidth(),
         contentPadding = PaddingValues(space_16),
         horizontalArrangement = Arrangement.spacedBy(space_4)) {
-        items(Constans.daysMoviePlay) { day ->
+        items(Constants.daysMoviePlay) { day ->
             DatePickerCustom(
                 dayNumber = day.dayNumber,
                 dayName = day.dayName,

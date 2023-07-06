@@ -1,4 +1,4 @@
-package com.teckiti.composable
+package com.teckiti.ui.screens.home.composable
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -37,7 +37,7 @@ fun RowScope.NavigationItem(
     modifier: Modifier = Modifier,
     isSelected: Boolean = false,
     onClick : () -> Unit = {},
-    otherContent: (@Composable () -> Unit)? = null,
+    content: (@Composable () -> Unit)? = null,
 ) {
     BottomNavigationItem(
         selected = isSelected,
@@ -56,7 +56,7 @@ fun RowScope.NavigationItem(
                     contentDescription = "",
                     tint = if (isSelected) Color.White else Color.Gray
                 )
-                otherContent?.let {
+                content?.let {
                     Spacer(modifier = Modifier.width(space_4))
                     it()
                 }

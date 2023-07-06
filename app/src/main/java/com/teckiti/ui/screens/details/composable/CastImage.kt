@@ -1,4 +1,4 @@
-package com.teckiti.composable
+package com.teckiti.ui.screens.details.composable
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -16,7 +16,7 @@ import androidx.compose.ui.res.painterResource
 import com.teckiti.ui.theme.space_16
 import com.teckiti.ui.theme.space_4
 import com.teckiti.ui.theme.space_56
-import com.teckiti.utils.Constans
+import com.teckiti.utils.Constants
 
 
     @Composable
@@ -25,7 +25,7 @@ import com.teckiti.utils.Constans
             modifier = Modifier.fillMaxWidth(),
             contentPadding = PaddingValues(space_16),
             horizontalArrangement = Arrangement.spacedBy(space_4)) {
-            items(Constans.cast) { imageResId ->
+            items(Constants.cast) { imageResId ->
                 Image(
                     painter = painterResource(imageResId),
                     contentDescription = null,

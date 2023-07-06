@@ -30,7 +30,7 @@ fun CloseButton(
     Row (modifier = Modifier
         .fillMaxWidth()
         .padding(horizontal = space_16), horizontalArrangement = Arrangement.SpaceBetween){
-        BlurBg(
+        BlurredCard(
             modifier= Modifier.padding(space_8).clickable { onClick() }
         ) {
             Box(
@@ -53,7 +53,5 @@ fun CloseButton(
         }
 
         content()
-
-
     }
 }

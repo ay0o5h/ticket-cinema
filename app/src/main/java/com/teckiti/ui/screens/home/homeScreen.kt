@@ -19,6 +19,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -34,14 +35,13 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
 import com.teckiti.R
-import com.teckiti.composable.BackgroundBlur
-import com.teckiti.composable.BottomNav
+import com.teckiti.ui.screens.home.composable.BottomNav
 import com.teckiti.composable.CustomChip
-import com.teckiti.composable.CustomText
+import com.teckiti.composable.FillButton
+import com.teckiti.composable.GradientOverlay
 import com.teckiti.composable.OutlineButton
-import com.teckiti.composable.PrimaryButton
 import com.teckiti.composable.SpacerVertical16
-import com.teckiti.composable.SpacerVertical32
+import com.teckiti.composable.TextStyles
 import com.teckiti.models.RoutesNames
 import com.teckiti.ui.theme.degree_0_4f
 import com.teckiti.ui.theme.fontSize_16
@@ -49,7 +49,7 @@ import com.teckiti.ui.theme.space_16
 import com.teckiti.ui.theme.space_32
 import com.teckiti.ui.theme.space_4
 import com.teckiti.ui.theme.space_8
-import com.teckiti.utils.Constans
+import com.teckiti.utils.Constants
 
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -59,7 +59,7 @@ fun HomeScreen(
     navController: NavHostController,
 ){
     val pagerState = rememberPagerState(
-        initialPage = Constans.imageList.size / 2
+        initialPage = Constants.imageList.size / 2
     )
     Scaffold(
         bottomBar = {
@@ -82,9 +82,9 @@ private fun HomeContent(
     Box(
         modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState())
     ) {
-        BackgroundBlur{
+        GradientOverlay{
             Image(
-                painter = painterResource(id = Constans.imageList[pagerState.currentPage]),
+                painter = painterResource(id = Constants.imageList[pagerState.currentPage]),
                 contentDescription = null,
                 contentScale = ContentScale.FillBounds,
                 modifier = Modifier
@@ -98,9 +98,13 @@ private fun HomeContent(
                 .matchParentSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            SpacerVertical32()
-            Row() {
-                PrimaryButton(
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = space_32),
+                horizontalArrangement = Arrangement.Center,
+            ) {
+                FillButton(
                     title = stringResource(R.string.now_showing),
                     modifier = Modifier
                         .padding(end = space_4),
@@ -112,23 +116,27 @@ private fun HomeContent(
                 ) {}
             }
             SpacerVertical16()
-            ImageSlider(imageList = Constans.imageList,
+            ImageSlider(imageList = Constants.imageList,
                 pagerState = pagerState){
                 onGoToDetails()
             }
-            SpacerVertical16()
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(space_8),
+            Row(
+                modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = space_16),
+                horizontalArrangement = Arrangement.Center,
                 ) {
                     Icon(
-                        modifier = Modifier.size(space_16),
+                        modifier = Modifier.size(space_16).padding(end = space_4),
                         painter = painterResource(R.drawable.clock_gray),
                         contentDescription = stringResource(R.string.clock),
                     )
                     Text(text = stringResource(R.string._2h_33m), color = Color.Black, fontSize = fontSize_16,)
-                }
-            SpacerVertical16()
-            CustomText(title = stringResource(R.string.fantastic_beasts_the_secrets_of_dumbledore))
+            }
+            Text(
+                text = stringResource(R.string.fantastic_beasts_the_secrets_of_dumbledore),
+                 style = MaterialTheme.typography.titleMedium.merge(TextStyles.TextStyle20())
+            )
             SpacerVertical16()
             Row() {
                 CustomChip(text = stringResource(R.string.fantasy), modifier = Modifier.padding(space_4),) {}

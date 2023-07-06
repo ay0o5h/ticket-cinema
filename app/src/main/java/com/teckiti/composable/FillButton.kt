@@ -8,7 +8,7 @@ import com.teckiti.ui.theme.TextWhite
 import com.teckiti.ui.theme.primary
 
 @Composable
-fun PrimaryButton(
+fun FillButton(
     title: String = "",
     modifier: Modifier = Modifier,
     onClick: () -> Unit

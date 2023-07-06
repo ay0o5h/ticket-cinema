@@ -1,4 +1,4 @@
-package com.teckiti.composable
+package com.teckiti.ui.screens.details.composable
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

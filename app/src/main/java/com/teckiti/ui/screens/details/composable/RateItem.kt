@@ -1,4 +1,4 @@
-package com.teckiti.composable
+package com.teckiti.ui.screens.details.composable
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
@@ -13,7 +13,7 @@ import com.teckiti.ui.theme.fontSize_12
 import com.teckiti.ui.theme.fontSize_14
 
 @Composable
-fun TextRate(
+fun RateItem(
     rate: String,
     type: String,
     isPresentageRate : Boolean = false

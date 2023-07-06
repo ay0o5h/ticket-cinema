@@ -1,4 +1,4 @@
-package com.teckiti.composable
+package com.teckiti.ui.screens.booking.composable
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import com.teckiti.R
+import com.teckiti.composable.IconButton
 import com.teckiti.ui.theme.Gray
 import com.teckiti.ui.theme.fontSize_12
 import com.teckiti.ui.theme.fontSize_24

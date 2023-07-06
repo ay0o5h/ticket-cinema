@@ -7,6 +7,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import com.teckiti.ui.theme.Gray
 import com.teckiti.ui.theme.fontSize_14
+import com.teckiti.ui.theme.fontSize_20
 import com.teckiti.ui.theme.fontSize_22
 
 object TextStyles {
@@ -27,6 +28,15 @@ object TextStyles {
             color = Color.Black,
             fontSize = fontSize_14,
             textAlign = TextAlign.Justify,
+        )
+    }
+
+    @Composable
+    fun TextStyle20(): TextStyle {
+        return TextStyle(
+            color = Color.Black ,
+            fontSize= fontSize_20,
+            fontWeight = FontWeight.W500,
         )
     }
 }

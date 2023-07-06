@@ -3,7 +3,7 @@ package com.teckiti.utils
 import com.teckiti.R
 import com.teckiti.models.Day
 
-object Constans {
+object Constants {
     val imageList = listOf(
         R.drawable.slider_3,
         R.drawable.slider_1,
