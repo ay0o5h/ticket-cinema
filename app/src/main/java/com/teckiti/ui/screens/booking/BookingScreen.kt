@@ -102,7 +102,7 @@ fun BookingContent(
                 repeat(3) {
                     PairOfChairs(
                         modifier = Modifier.graphicsLayer {
-                            rotationZ = if (it == 0) 8f else if (it == 1) 0f else -8f
+                            rotationZ = if (it == 0) 10f else if (it == 1) 0f else -10f
                             translationY = if (it == 1) 20f else 0f
                         },
                     )

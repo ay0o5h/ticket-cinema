@@ -35,15 +35,14 @@ fun BackgroundBlur(
                         Color.Transparent,
                         Color.Transparent,
                         Color.White.copy(alpha = degree_0_1f),
+                        Color.White.copy(alpha = degree_0_1f),
+                        Color.White.copy(alpha = degree_0_2f),
                         Color.White.copy(alpha = degree_0_2f),
                         Color.White.copy(alpha = degree_0_3f),
-                        Color.White.copy(alpha = degree_0_4f),
-                        Color.White.copy(alpha = degree_0_5f),
-                        Color.White.copy(alpha = degree_0_6f),
+                        Color.White.copy(alpha = degree_0_3f),
                         Color.White,
                     ),
                 ),
-                topLeft = Offset(degree_0, size.height / 6),
             )
         }
 ) {
