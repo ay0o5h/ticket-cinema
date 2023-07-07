@@ -46,8 +46,8 @@ fun BookingFooter() {
             title= stringResource(R.string.buy_tickets),
             modifier = Modifier
                 .padding(space_16)
-                .height(space_48)
-
-        ){}
+                .height(space_48),
+            onClick = {}
+        )
     }
 }

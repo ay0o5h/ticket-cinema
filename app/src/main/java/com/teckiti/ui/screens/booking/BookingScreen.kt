@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -94,6 +95,7 @@ fun BookingContent(
                 painter = painterResource(R.drawable.cinema_screen), contentDescription = ""
             )
             CinemaSeats()
+            Spacer(modifier =   Modifier.padding(top = space_32))
             Row(
                 modifier = Modifier
                     .fillMaxWidth()

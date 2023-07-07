@@ -139,9 +139,9 @@ private fun DetailsContent(
                 )
                 Row() {
                     CustomChip(text = stringResource(R.string.fantasy),
-                        modifier = Modifier.padding(space_4),) {}
+                        modifier = Modifier.padding(space_4),onClick ={})
                     CustomChip(text = stringResource(R.string.adventure),
-                        modifier = Modifier.padding(space_4),) {}
+                        modifier = Modifier.padding(space_4),onClick ={})
                 }
                 CastImages()
                 Text(
@@ -156,10 +156,9 @@ private fun DetailsContent(
                     title= stringResource(R.string.booking) ,
                     modifier = Modifier
                         .padding(space_16)
-                        .height(space_48)
-                ){
-                    onGoToBooking()
-                }
+                        .height(space_48),
+                    onClick = { onGoToBooking() }
+                )
             }
         }
     }

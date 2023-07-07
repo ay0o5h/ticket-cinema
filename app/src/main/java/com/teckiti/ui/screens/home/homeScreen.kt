@@ -46,6 +46,7 @@ import com.teckiti.models.RoutesNames
 import com.teckiti.ui.theme.degree_0_4f
 import com.teckiti.ui.theme.fontSize_16
 import com.teckiti.ui.theme.space_16
+import com.teckiti.ui.theme.space_20
 import com.teckiti.ui.theme.space_32
 import com.teckiti.ui.theme.space_4
 import com.teckiti.ui.theme.space_8
@@ -108,18 +109,18 @@ private fun HomeContent(
                     title = stringResource(R.string.now_showing),
                     modifier = Modifier
                         .padding(end = space_4),
-                ) {}
+                    onClick = {}
+                )
                 OutlineButton(
                     title = stringResource(R.string.coming_soon),
                     modifier = Modifier
                         .padding(start = space_4),
-                ) {}
+                    onClick = {}
+                )
             }
             SpacerVertical16()
             ImageSlider(imageList = Constants.imageList,
-                pagerState = pagerState){
-                onGoToDetails()
-            }
+                pagerState = pagerState, onClick = {onGoToDetails()})
             Row(
                 modifier = Modifier
                         .fillMaxWidth()
@@ -127,7 +128,7 @@ private fun HomeContent(
                 horizontalArrangement = Arrangement.Center,
                 ) {
                     Icon(
-                        modifier = Modifier.size(space_16).padding(end = space_4),
+                        modifier = Modifier.size(space_20).padding(end = space_4),
                         painter = painterResource(R.drawable.clock_gray),
                         contentDescription = stringResource(R.string.clock),
                     )
@@ -139,8 +140,8 @@ private fun HomeContent(
             )
             SpacerVertical16()
             Row() {
-                CustomChip(text = stringResource(R.string.fantasy), modifier = Modifier.padding(space_4),) {}
-                CustomChip(text = stringResource(R.string.adventure), modifier = Modifier.padding(space_4),) {}
+                CustomChip(text = stringResource(R.string.fantasy), modifier = Modifier.padding(space_4), onClick = {})
+                CustomChip(text = stringResource(R.string.adventure), modifier = Modifier.padding(space_4), onClick ={} ,)
             }
         }
     }

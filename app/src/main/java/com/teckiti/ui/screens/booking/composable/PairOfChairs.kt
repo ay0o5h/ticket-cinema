@@ -40,8 +40,8 @@ fun PairOfChairs(
             modifier = Modifier.padding(bottom = space_4),
             horizontalArrangement = Arrangement.Center,
         ) {
-            Chair() {}
-            Chair() {}
+            Chair()
+            Chair()
         }
     }
 
@@ -50,7 +50,7 @@ fun PairOfChairs(
 @Composable
 fun Chair(
     modifier: Modifier = Modifier,
-    ocClickChair: () -> Unit,
+    ocClickChair: () -> Unit ={},
 ) {
         IconButton(
             modifier = modifier.size(space_20),
