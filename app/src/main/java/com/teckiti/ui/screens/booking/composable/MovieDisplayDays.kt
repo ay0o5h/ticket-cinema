@@ -37,7 +37,6 @@ fun MovieDisplayDaysChip(
     isSelected: Boolean = false,
     onClick: () -> Unit = {}
 ){
-
     Chip(
         onClick ={onClick()},
         shape = RoundedCornerShape(space_16),

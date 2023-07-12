@@ -24,7 +24,7 @@ fun ImageSlider(
     imageList: List<Int>,
     pagerState: PagerState,
     modifier: Modifier = Modifier,
-onClick: () -> Unit
+    onClick: () -> Unit
 ) {
     HorizontalPager(
         state = pagerState,
